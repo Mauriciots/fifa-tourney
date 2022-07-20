@@ -1,7 +1,7 @@
-import React from 'react';
-import players from '../data/playersData';
-import matches from '../data/matchesData';
-import Player from './Player';
+import React from "react";
+import players from "../data/playersData";
+import matches from "../data/matchesData";
+import Player from "./Player";
 
 export default function PlayersList() {
   const newPlayersObj = {};
@@ -33,12 +33,12 @@ export default function PlayersList() {
       newPlayersObj[`id${match.winner}`] = { ...winnerPlayer };
     }
   });
-  console.log('players', players);
+  console.log("players", players);
   const playersArr = Object.values(newPlayersObj).map((player) => {
-    return <Player player={player} />;
+    return <Player player={player} key={player.id} />;
   });
   return (
-    <section className='PlayerList'>
+    <section className="PlayerList">
       <h1>Current participant players</h1>
       {playersArr}
     </section>
